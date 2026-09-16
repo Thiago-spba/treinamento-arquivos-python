@@ -37,7 +37,7 @@
       justify-content: center;
       align-items: flex-start;
       min-height: 100vh;
-      padding: 12px;
+      padding: 10px;
       font-size: 15px;
       line-height: 1.5;
     }
@@ -58,23 +58,26 @@
     .app-header {
       background-color: #1E293B;
       color: #F8FAFC;
-      padding: 12px 16px;
+      padding: 10px 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13.5px;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 13px;
       font-weight: 600;
     }
     .app-header-left {
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
     .badge-turma {
       background-color: #334155;
       color: #93C5FD;
-      font-size: 11.5px;
-      padding: 2px 8px;
+      font-size: 11px;
+      padding: 2px 7px;
       border-radius: 4px;
       font-weight: 500;
     }
@@ -86,19 +89,20 @@
       border-bottom: 1px solid var(--border-color);
       overflow-x: auto;
       scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
     .nav-tabs::-webkit-scrollbar { display: none; }
 
     .tab-btn {
-      padding: 10px 14px;
-      font-size: 13px;
+      padding: 9px 12px;
+      font-size: 12.5px;
       font-weight: 600;
       color: var(--text-muted);
       border-right: 1px solid var(--border-color);
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       white-space: nowrap;
       background: transparent;
       border-top: none;
@@ -130,7 +134,7 @@
 
     /* Área de Conteúdo */
     .content-body {
-      padding: 18px;
+      padding: 16px;
     }
 
     .step-panel {
@@ -141,7 +145,7 @@
     }
 
     h2 {
-      font-size: 18px;
+      font-size: 17.5px;
       color: #0F172A;
       margin-bottom: 6px;
       display: flex;
@@ -151,8 +155,8 @@
 
     .scenario-desc {
       color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 16px;
+      font-size: 13.5px;
+      margin-bottom: 14px;
       line-height: 1.5;
     }
 
@@ -161,13 +165,13 @@
       background-color: var(--code-bg);
       border: 1px solid var(--code-border);
       border-radius: 8px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       overflow: hidden;
     }
     .editor-top {
       background-color: #E2E8F0;
       padding: 6px 12px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-family: monospace;
       color: #475569;
       font-weight: bold;
@@ -176,9 +180,9 @@
       justify-content: space-between;
     }
     .editor-code {
-      padding: 14px;
+      padding: 12px 14px;
       font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
-      font-size: 13.5px;
+      font-size: 13px;
       line-height: 1.6;
       color: #1E293B;
       overflow-x: auto;
@@ -200,7 +204,7 @@
       gap: 6px;
     }
     .input-code-label {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       color: #1E40AF;
       display: flex;
@@ -214,11 +218,11 @@
     }
     .input-code-field {
       flex: 1;
-      padding: 10px 12px;
+      padding: 9px 12px;
       border: 1.5px solid var(--border-color);
       border-radius: 6px;
       font-family: "Cascadia Code", Consolas, monospace;
-      font-size: 14px;
+      font-size: 13.5px;
       color: #0F172A;
       background-color: #F8FAFC;
     }
@@ -233,9 +237,9 @@
       color: #FFFFFF;
       border: none;
       border-radius: 6px;
-      padding: 10px 16px;
+      padding: 9px 15px;
       font-weight: 600;
-      font-size: 13.5px;
+      font-size: 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -248,22 +252,22 @@
     .terminal-box {
       background-color: #0F172A;
       color: #E2E8F0;
-      padding: 12px 14px;
+      padding: 10px 12px;
       border-radius: 6px;
       font-family: monospace;
-      font-size: 12.5px;
-      margin-bottom: 16px;
+      font-size: 12px;
+      margin-bottom: 14px;
       line-height: 1.5;
       display: none;
     }
     .terminal-box.show { display: block; }
     .term-success { color: #4ADE80; font-weight: bold; }
     .term-error { color: #F87171; font-weight: bold; }
-    .term-hint { color: #FDE047; margin-top: 6px; }
+    .term-hint { color: #FDE047; margin-top: 5px; }
 
     /* Grade com 3 Alternativas Bem Espaçadas */
     .options-label {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 700;
       color: #334155;
       margin-bottom: 8px;
@@ -271,14 +275,14 @@
     .options-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 16px;
     }
     .option-card {
       background-color: #FFFFFF;
       border: 1.5px solid var(--border-color);
       border-radius: 8px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -289,46 +293,38 @@
       border-color: var(--primary);
       background-color: #F8FAFC;
     }
-    .option-card.selected {
-      border-color: var(--primary);
-      background-color: var(--primary-light);
-    }
-    .option-card.correct {
-      border-color: var(--success);
-      background-color: var(--success-light);
-    }
-    .option-card.wrong {
-      border-color: var(--danger);
-      background-color: var(--danger-light);
-    }
     .opt-left {
       display: flex;
       align-items: center;
       gap: 10px;
+      overflow: hidden;
     }
     .opt-tag {
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12.5px;
       background-color: #E2E8F0;
-      padding: 4px 8px;
+      padding: 3px 7px;
       border-radius: 4px;
       color: #1E293B;
+      flex-shrink: 0;
     }
     .opt-code {
       font-family: monospace;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       color: #0F172A;
+      word-break: break-all;
     }
     .btn-use-opt {
-      font-size: 12px;
+      font-size: 11.5px;
       color: #2563EB;
       font-weight: 600;
       background: #EFF6FF;
       border: 1px solid #BFDBFE;
-      padding: 6px 10px;
+      padding: 5px 9px;
       border-radius: 4px;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     /* Botão de Avanço */
@@ -337,12 +333,12 @@
       color: #FFFFFF;
       border: none;
       border-radius: 8px;
-      padding: 12px 20px;
-      font-size: 15px;
+      padding: 12px 18px;
+      font-size: 14.5px;
       font-weight: 600;
       cursor: pointer;
       width: 100%;
-      min-height: 48px;
+      min-height: 46px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -355,20 +351,20 @@
 
     /* Formulário Inicial */
     .form-group {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .form-group label {
       display: block;
       font-weight: 600;
-      font-size: 13.5px;
-      margin-bottom: 5px;
+      font-size: 13px;
+      margin-bottom: 4px;
     }
     .form-control {
       width: 100%;
-      padding: 12px 14px;
+      padding: 10px 12px;
       border: 1.5px solid var(--border-color);
-      border-radius: 8px;
-      font-size: 14.5px;
+      border-radius: 6px;
+      font-size: 14px;
     }
     .form-control:focus {
       outline: none;
@@ -379,63 +375,63 @@
     /* CARTÃO DO PRINT COMPROVANTE (100% RESPONSIVO E COMPACTO) */
     .comprovante-wrapper {
       max-width: 580px;
-      margin: 0 auto 16px auto;
+      margin: 0 auto 14px auto;
     }
     .comprovante-card {
       background-color: #FFFFFF;
       border: 2px solid #0F172A;
       border-radius: 8px;
-      padding: 16px;
+      padding: 14px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     .comp-header {
       text-align: center;
       border-bottom: 2px solid #E2E8F0;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
     }
     .comp-gov {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
       color: #475569;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
     }
     .comp-title {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
       color: #0F172A;
-      margin: 3px 0;
+      margin: 2px 0;
     }
     .comp-sub {
-      font-size: 11.5px;
+      font-size: 11px;
       color: #1E40AF;
       font-weight: 600;
     }
     .comp-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 6px;
       background-color: #F8FAFC;
       border: 1px solid #E2E8F0;
       border-radius: 6px;
-      padding: 10px;
-      font-size: 12.5px;
-      margin-bottom: 12px;
+      padding: 8px 10px;
+      font-size: 12px;
+      margin-bottom: 10px;
     }
     .comp-grid span { display: block; }
     .comp-grid strong { color: #0F172A; }
 
     .comp-skills {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .comp-skill-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 12px;
+      gap: 6px;
+      font-size: 11.5px;
       color: #334155;
-      padding: 3.5px 0;
+      padding: 3px 0;
       border-bottom: 1px dashed #E2E8F0;
     }
     .comp-skill-row:last-child { border-bottom: none; }
@@ -444,12 +440,12 @@
       background-color: #F0FDF4;
       border: 1.5px solid #16A34A;
       color: #15803D;
-      padding: 8px 12px;
+      padding: 7px 10px;
       border-radius: 6px;
       text-align: center;
       font-weight: 800;
-      font-size: 13px;
-      margin-bottom: 10px;
+      font-size: 12.5px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -460,7 +456,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 10.5px;
+      font-size: 10px;
       color: #64748B;
       border-top: 1px solid #E2E8F0;
       padding-top: 6px;
@@ -471,7 +467,7 @@
       background-color: #F8FAFC;
       border: 2px dashed #CBD5E1;
       border-radius: 8px;
-      padding: 30px 16px;
+      padding: 24px 14px;
       text-align: center;
       color: #64748B;
     }
@@ -480,7 +476,7 @@
     .status-footer {
       background-color: #F8FAFC;
       border-top: 1px solid var(--border-color);
-      padding: 8px 16px;
+      padding: 8px 14px;
       font-size: 11.5px;
       color: #64748B;
       display: flex;
@@ -492,12 +488,12 @@
     @media (max-width: 550px) {
       body { padding: 4px; }
       .content-body { padding: 12px; }
-      h2 { font-size: 16.5px; }
+      h2 { font-size: 16px; }
       .comp-grid { grid-template-columns: 1fr; gap: 4px; }
-      .comp-title { font-size: 13.5px; }
+      .comp-title { font-size: 13px; }
       .input-code-row { flex-direction: column; align-items: stretch; }
       .btn-exec { width: 100%; justify-content: center; }
-      .option-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .option-card { flex-direction: column; align-items: flex-start; gap: 6px; }
       .btn-use-opt { width: 100%; text-align: center; }
     }
 
@@ -513,14 +509,13 @@
 <body>
 
   <div class="app-container">
-    <!-- Cabeçalho Limpo Sem Botões Inúteis -->
     <div class="app-header">
       <div class="app-header-left">
         <span>💻</span>
         <span>Simulador de Arquivos Python</span>
         <span class="badge-turma">2º Ano TDS</span>
       </div>
-      <div style="font-size: 12px; color: #94A3B8;">SEDUC-SP</div>
+      <div style="font-size: 11.5px; color: #94A3B8;">SEDUC-SP</div>
     </div>
 
     <!-- Abas de Navegação -->
@@ -546,7 +541,7 @@
 
         <div class="form-group">
           <label>Nome Completo do Aluno:</label>
-          <input type="text" id="inputNome" class="form-control" placeholder="Digite seu nome completo...">
+          <input type="text" id="inputNome" class="form-control" placeholder="Digite seu nome completo..." onkeypress="if(event.key==='Enter')iniciarLaboratorio()">
         </div>
 
         <div class="form-group">
@@ -559,7 +554,7 @@
           <input type="text" id="inputEscola" class="form-control" value="E.E. Professor Simão Mathias">
         </div>
 
-        <div style="margin-top: 18px;">
+        <div style="margin-top: 16px;">
           <button class="btn-advance" onclick="iniciarLaboratorio()">
             Entrar no Laboratório de Código ➔
           </button>
@@ -586,7 +581,6 @@
           </div>
         </div>
 
-        <!-- Área de Digitação Interativa -->
         <div class="input-code-area">
           <div class="input-code-label">
             <span>⌨️</span> <span>DIGITE A RESPOSTA (OU ESCOLHA UMA OPÇÃO ABAIXO):</span>
@@ -599,13 +593,11 @@
           </div>
         </div>
 
-        <!-- Terminal de Saída -->
         <div class="terminal-box" id="termBox1"></div>
 
-        <!-- 3 Alternativas Bem Espaçadas -->
         <div class="options-label">Alternativas para o 2º ano (clique para carregar no editor):</div>
         <div class="options-list">
-          <div class="option-card" onclick="usarOpcao(1, 'f = open("dados.txt", "r")')">
+          <div class="option-card" onclick="usarOpcao(1, 'f = open(&quot;dados.txt&quot;, &quot;r&quot;)')">
             <div class="opt-left">
               <span class="opt-tag">A</span>
               <span class="opt-code">f = open("dados.txt", "r")</span>
@@ -613,7 +605,7 @@
             <button class="btn-use-opt">Inserir</button>
           </div>
 
-          <div class="option-card" onclick="usarOpcao(1, 'with open("dados.txt", "r", encoding="utf-8") as f:')">
+          <div class="option-card" onclick="usarOpcao(1, 'with open(&quot;dados.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:')">
             <div class="opt-left">
               <span class="opt-tag">B</span>
               <span class="opt-code">with open("dados.txt", "r", encoding="utf-8") as f:</span>
@@ -621,7 +613,7 @@
             <button class="btn-use-opt">Inserir</button>
           </div>
 
-          <div class="option-card" onclick="usarOpcao(1, 'f = open("dados.txt", "r"); f.close()')">
+          <div class="option-card" onclick="usarOpcao(1, 'f = open(&quot;dados.txt&quot;, &quot;r&quot;); f.close()')">
             <div class="opt-left">
               <span class="opt-tag">C</span>
               <span class="opt-code">f = open("dados.txt", "r"); f.close()</span>
@@ -675,7 +667,7 @@
 
         <div class="options-label">Alternativas para o 2º ano (clique para carregar no editor):</div>
         <div class="options-list">
-          <div class="option-card" onclick="usarOpcao(2, 'linha.split("\n")')">
+          <div class="option-card" onclick="usarOpcao(2, 'linha.split(&quot;\n&quot;)')">
             <div class="opt-left">
               <span class="opt-tag">A</span>
               <span class="opt-code">linha.split("
@@ -692,7 +684,7 @@
             <button class="btn-use-opt">Inserir</button>
           </div>
 
-          <div class="option-card" onclick="usarOpcao(2, 'linha.replace(" ", "")')">
+          <div class="option-card" onclick="usarOpcao(2, 'linha.replace(&quot; &quot;, &quot;&quot;)')">
             <div class="opt-left">
               <span class="opt-tag">C</span>
               <span class="opt-code">linha.replace(" ", "")</span>
@@ -743,7 +735,7 @@
 
         <div class="options-label">Alternativas para o 2º ano (clique para carregar no editor):</div>
         <div class="options-list">
-          <div class="option-card" onclick="usarOpcao(3, '"w"')">
+          <div class="option-card" onclick="usarOpcao(3, '&quot;w&quot;')">
             <div class="opt-left">
               <span class="opt-tag">A</span>
               <span class="opt-code">"w" (Write / Sobrescrever)</span>
@@ -751,7 +743,7 @@
             <button class="btn-use-opt">Inserir</button>
           </div>
 
-          <div class="option-card" onclick="usarOpcao(3, '"a"')">
+          <div class="option-card" onclick="usarOpcao(3, '&quot;a&quot;')">
             <div class="opt-left">
               <span class="opt-tag">B</span>
               <span class="opt-code">"a" (Append / Anexar)</span>
@@ -759,7 +751,7 @@
             <button class="btn-use-opt">Inserir</button>
           </div>
 
-          <div class="option-card" onclick="usarOpcao(3, '"r+"')">
+          <div class="option-card" onclick="usarOpcao(3, '&quot;r+&quot;')">
             <div class="opt-left">
               <span class="opt-tag">C</span>
               <span class="opt-code">"r+" (Read and Write do início)</span>
@@ -828,7 +820,7 @@
             <button class="btn-use-opt">Inserir</button>
           </div>
 
-          <div class="option-card" onclick="usarOpcao(4, 'csv.split(f, ",")')">
+          <div class="option-card" onclick="usarOpcao(4, 'csv.split(f, &quot;,&quot;)')">
             <div class="opt-left">
               <span class="opt-tag">C</span>
               <span class="opt-code">csv.split(f, ",")</span>
@@ -847,14 +839,12 @@
         <h2 style="margin-bottom: 4px;">🎓 Comprovante Oficial de Conclusão</h2>
         <p class="scenario-desc" style="margin-bottom: 12px;">Documento oficial para registro de atividades no AVA e Google Sala de Aula.</p>
 
-        <!-- Se Bloqueado -->
         <div id="lockedView" class="locked-box">
           <div style="font-size: 32px; margin-bottom: 8px;">🔒</div>
           <h3 style="color: #334155; margin-bottom: 6px;">Comprovante Bloqueado</h3>
           <p style="font-size: 13px;">Execute e acerte com sucesso os 4 desafios práticos das etapas anteriores para liberar este comprovante.</p>
         </div>
 
-        <!-- Se Desbloqueado (100% Responsivo sem bordas exageradas) -->
         <div id="unlockedView" style="display: none;">
           <div class="comprovante-wrapper">
             <div class="comprovante-card" id="comprovantePrint">
@@ -902,7 +892,6 @@
             </div>
           </div>
 
-          <!-- Ações -->
           <div style="display: flex; gap: 8px; flex-direction: column;" class="no-print">
             <button class="btn-advance" style="background-color: #16A34A;" onclick="window.print()">
               🖨️ Salvar Comprovante em PDF / Imprimir
@@ -917,7 +906,6 @@
 
     </div>
 
-    <!-- Barra de Status Inferior -->
     <div class="status-footer">
       <div>● Python 3.12 | UTF-8 | Prof. Thiago Fernando</div>
       <div id="statusLab">Aguardando Início</div>
@@ -925,17 +913,17 @@
   </div>
 
   <script>
-    let aluno = { nome: "", turma: "2º Técnico em Desenvolvimento de Sistemas", escola: "E.E. Professor Simão Mathias", data: "" };
-    let progresso = { s1: false, s2: false, s3: false, s4: false };
+    var aluno = { nome: "", turma: "2º Técnico em Desenvolvimento de Sistemas", escola: "E.E. Professor Simão Mathias", data: "" };
+    var progresso = { s1: false, s2: false, s3: false, s4: false };
 
     function goToStep(idx) {
       if (idx === 5 && !(progresso.s1 && progresso.s2 && progresso.s3 && progresso.s4)) {
-        alert("🔒 Complete os 4 desafios práticos com sucesso para liberar o Comprovante Oficial!");
+        alert("Complete os 4 desafios práticos com sucesso para liberar o Comprovante Oficial!");
         return;
       }
-      for (let i = 0; i <= 5; i++) {
-        let t = document.getElementById("tab" + i);
-        let p = document.getElementById("step" + i);
+      for (var i = 0; i <= 5; i++) {
+        var t = document.getElementById("tab" + i);
+        var p = document.getElementById("step" + i);
         if (t) t.classList.remove("active");
         if (p) p.classList.remove("active");
       }
@@ -951,9 +939,9 @@
     }
 
     function iniciarLaboratorio() {
-      let n = document.getElementById("inputNome").value.trim();
-      let t = document.getElementById("inputTurma").value.trim();
-      let esc = document.getElementById("inputEscola").value.trim();
+      var n = document.getElementById("inputNome").value.trim();
+      var t = document.getElementById("inputTurma").value.trim();
+      var esc = document.getElementById("inputEscola").value.trim();
 
       if (!n) {
         alert("Por favor, preencha seu nome completo para a emissão do comprovante.");
@@ -965,7 +953,7 @@
       aluno.turma = t || "2º Técnico em Desenvolvimento de Sistemas";
       aluno.escola = esc || "E.E. Professor Simão Mathias";
 
-      let now = new Date();
+      var now = new Date();
       aluno.data = now.toLocaleDateString("pt-BR") + " às " + now.toLocaleTimeString("pt-BR", { hour: '2-digit', minute: '2-digit' });
 
       document.getElementById("outNome").innerText = aluno.nome;
@@ -979,14 +967,14 @@
     }
 
     function usarOpcao(step, codigo) {
-      let field = document.getElementById("inputField" + step);
+      var field = document.getElementById("inputField" + step);
       field.value = codigo;
       atualizarPreview(step, codigo);
       testarCodigo(step);
     }
 
     function atualizarPreview(step, texto) {
-      let prev = document.getElementById("codePreview" + step);
+      var prev = document.getElementById("codePreview" + step);
       if (prev) {
         prev.innerText = texto;
         prev.style.backgroundColor = "#BBF7D0";
@@ -995,9 +983,9 @@
     }
 
     function testarCodigo(step) {
-      let val = document.getElementById("inputField" + step).value.trim();
-      let term = document.getElementById("termBox" + step);
-      let btn = document.getElementById("btnNext" + step);
+      var val = document.getElementById("inputField" + step).value.trim();
+      var term = document.getElementById("termBox" + step);
+      var btn = document.getElementById("btnNext" + step);
 
       if (!val) {
         term.className = "terminal-box show";
@@ -1008,27 +996,25 @@
       atualizarPreview(step, val);
 
       if (step === 1) {
-        // Valida with open
-        let clean = val.replace(/\s+/g, " ").replace(/'/g, '"');
-        if (clean.includes("with open") && clean.includes("dados.txt") && clean.includes("as f")) {
+        var clean1 = val.replace(/\s+/g, " ").replace(/'/g, '"');
+        if (clean1.includes("with open") && clean1.includes("dados.txt") && clean1.includes("as f")) {
           term.className = "terminal-box show";
           term.innerHTML = "<span class='term-success'>[SUCESSO: Python 3.12]</span><br>>>> Arquivo 'dados.txt' alocado em buffer e lido.<br>>>> Recurso fechado automaticamente pelo Sistema Operacional ao sair do bloco.<br>>>> Status: 0 vazamentos de descritores de arquivo.";
           progresso.s1 = true;
           btn.disabled = false;
           marcarDone(1);
-        } else if (clean.includes("close()")) {
+        } else if (clean1.includes("close()")) {
           term.className = "terminal-box show";
           term.innerHTML = "<span class='term-error'>[FALHA DE ROBUSTEZ - 2º ANO]:</span> Fechamento manual com .close() não é tolerante a falhas. Se ocorrer uma exceção antes do close, o descritor permanece preso no SO.<br><span class='term-hint'>💡 Dica: Utilize a estrutura oficial Context Manager com 'with open(...) as f:'.</span>";
         } else {
           term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-error'>[RESOURCE WARNING]:</span> O arquivo foi aberto sem garantia de fechamento controlado pelo Sistema Operacional.<br><span class='term-hint'>💡 Dica: Aplique o padrão 'with open("dados.txt", "r", encoding="utf-8") as f:'.</span>";
+          term.innerHTML = "<span class='term-error'>[RESOURCE WARNING]:</span> O arquivo foi aberto sem garantia de fechamento controlado pelo Sistema Operacional.<br><span class='term-hint'>💡 Dica: Aplique o padrão com with open.</span>";
         }
       }
 
       else if (step === 2) {
-        // Valida strip
-        let clean = val.replace(/\s+/g, "");
-        if (clean === "linha.strip()" || clean === "strip()" || clean.includes(".strip()")) {
+        var clean2 = val.replace(/\s+/g, "");
+        if (clean2 === "linha.strip()" || clean2 === "strip()" || clean2.includes(".strip()")) {
           term.className = "terminal-box show";
           term.innerHTML = "<span class='term-success'>[SUCESSO: Python 3.12]</span><br>>>> String higienizada: '\n' e espaços removidos com sucesso.<br>>>> float('15.50') convertido para 15.5 sem ValueError.<br>>>> Colunas prontas para processamento.";
           progresso.s2 = true;
@@ -1041,15 +1027,14 @@
       }
 
       else if (step === 3) {
-        // Valida modo "a"
-        let clean = val.replace(/['"\s]/g, "").toLowerCase();
-        if (clean === "a" || clean === "append") {
+        var clean3 = val.replace(/['"\s]/g, "").toLowerCase();
+        if (clean3 === "a" || clean3 === "append") {
           term.className = "terminal-box show";
           term.innerHTML = "<span class='term-success'>[SUCESSO: DECISÃO DE NEGÓCIO APROVADA]</span><br>>>> Modo 'a' (Append) ativado com sucesso.<br>>>> Cursor posicionado no final do arquivo: 40 vendas da manhã preservadas.<br>>>> Venda #41 anexada com êxito.";
           progresso.s3 = true;
           btn.disabled = false;
           marcarDone(3);
-        } else if (clean === "w") {
+        } else if (clean3 === "w") {
           term.className = "terminal-box show";
           term.innerHTML = "<span class='term-error'>[CRITICAL DATA LOSS WARNING]:</span> O modo 'w' (Write) sobrescreve o arquivo e apagou todas as 40 vendas anteriores do caixa!<br><span class='term-hint'>💡 Dica: Para apenas acrescentar ao histórico sem apagar, use o modo 'a' (Append).</span>";
         } else {
@@ -1059,9 +1044,8 @@
       }
 
       else if (step === 4) {
-        // Valida csv.reader
-        let clean = val.replace(/\s+/g, "");
-        if (clean.includes("csv.reader")) {
+        var clean4 = val.replace(/\s+/g, "");
+        if (clean4.includes("csv.reader")) {
           term.className = "terminal-box show";
           term.innerHTML = "<span class='term-success'>[SUCESSO: PADRÃO RFC 4180 CUMPRIDO]</span><br>>>> csv.reader() identificou as aspas como delimitador textual.<br>>>> 'Silva, João' preservado como coluna única.<br>>>> Relatório do RH processado com exatamente 4 colunas válidas.";
           progresso.s4 = true;
@@ -1081,7 +1065,7 @@
     }
 
     function atualizarProgressoGeral() {
-      let c = 0;
+      var c = 0;
       if (progresso.s1) c++;
       if (progresso.s2) c++;
       if (progresso.s3) c++;
@@ -1100,7 +1084,7 @@
     function reiniciarLab() {
       if (confirm("Deseja reiniciar os testes do laboratório?")) {
         progresso = { s1: false, s2: false, s3: false, s4: false };
-        for (let i = 1; i <= 4; i++) {
+        for (var i = 1; i <= 4; i++) {
           document.getElementById("inputField" + i).value = "";
           document.getElementById("btnNext" + i).disabled = true;
           document.getElementById("termBox" + i).className = "terminal-box";
