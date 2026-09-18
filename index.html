@@ -13,479 +13,95 @@
       --text-main: #0F172A;
       --text-muted: #475569;
       --primary: #1E40AF;
-      --primary-hover: #1D4ED8;
-      --primary-light: #EFF6FF;
       --success: #15803D;
-      --success-light: #F0FDF4;
       --danger: #B91C1C;
-      --danger-light: #FEF2F2;
       --code-bg: #F8FAFC;
       --code-border: #E2E8F0;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: var(--bg-body);
-      color: var(--text-main);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 10px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .app-container {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      width: 100%;
-      max-width: 780px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Cabeçalho da Aplicação */
-    .app-header {
-      background-color: #1E293B;
-      color: #F8FAFC;
-      padding: 10px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .app-header-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .badge-turma {
-      background-color: #334155;
-      color: #93C5FD;
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-
-    /* Abas de Navegação */
-    .nav-tabs {
-      display: flex;
-      background-color: #F1F5F9;
-      border-bottom: 1px solid var(--border-color);
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: var(--bg-body); color: var(--text-main); display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 10px; font-size: 15px; line-height: 1.5; }
+    .app-container { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); width: 100%; max-width: 780px; overflow: hidden; display: flex; flex-direction: column; }
+    .app-header { background-color: #1E293B; color: #F8FAFC; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; }
+    .app-header-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .badge-turma { background-color: #334155; color: #93C5FD; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-weight: 500; }
+    .nav-tabs { display: flex; background-color: #F1F5F9; border-bottom: 1px solid var(--border-color); overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .nav-tabs::-webkit-scrollbar { display: none; }
-
-    .tab-btn {
-      padding: 9px 12px;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--text-muted);
-      border-right: 1px solid var(--border-color);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
-      background: transparent;
-      border-top: none;
-      border-left: none;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
-    }
-    .tab-btn.active {
-      background-color: #FFFFFF;
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-    }
-    .tab-btn.done {
-      color: var(--success);
-    }
-
-    /* Barra de Progresso */
-    .progress-bar {
-      height: 4px;
-      background-color: #E2E8F0;
-      width: 100%;
-    }
-    .progress-fill {
-      height: 100%;
-      background-color: var(--primary);
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-
-    /* Área de Conteúdo */
-    .content-body {
-      padding: 16px;
-    }
-
-    .step-panel {
-      display: none;
-    }
-    .step-panel.active {
-      display: block;
-    }
-
-    h2 {
-      font-size: 17.5px;
-      color: #0F172A;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .scenario-desc {
-      color: var(--text-muted);
-      font-size: 13.5px;
-      margin-bottom: 14px;
-      line-height: 1.5;
-    }
-
-    /* Editor de Código Estilo VS Code Light */
-    .editor-card {
-      background-color: var(--code-bg);
-      border: 1px solid var(--code-border);
-      border-radius: 8px;
-      margin-bottom: 14px;
-      overflow: hidden;
-    }
-    .editor-top {
-      background-color: #E2E8F0;
-      padding: 6px 12px;
-      font-size: 11.5px;
-      font-family: monospace;
-      color: #475569;
-      font-weight: bold;
-      border-bottom: 1px solid var(--code-border);
-      display: flex;
-      justify-content: space-between;
-    }
-    .editor-code {
-      padding: 12px 14px;
-      font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #1E293B;
-      overflow-x: auto;
-    }
+    .tab-btn { padding: 9px 12px; font-size: 12.5px; font-weight: 600; color: var(--text-muted); border-right: 1px solid var(--border-color); cursor: pointer; display: flex; align-items: center; gap: 5px; white-space: nowrap; background: transparent; border-top: none; border-left: none; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .tab-btn.active { background-color: #FFFFFF; color: var(--primary); border-bottom-color: var(--primary); }
+    .tab-btn.done { color: var(--success); }
+    .progress-bar { height: 4px; background-color: #E2E8F0; width: 100%; }
+    .progress-fill { height: 100%; background-color: var(--primary); width: 0%; transition: width 0.3s ease; }
+    .content-body { padding: 16px; }
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+    h2 { font-size: 17.5px; color: #0F172A; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .scenario-desc { color: var(--text-muted); font-size: 13.5px; margin-bottom: 14px; line-height: 1.5; }
+    .editor-card { background-color: var(--code-bg); border: 1px solid var(--code-border); border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
+    .editor-top { background-color: #E2E8F0; padding: 6px 12px; font-size: 11.5px; font-family: monospace; color: #475569; font-weight: bold; border-bottom: 1px solid var(--code-border); display: flex; justify-content: space-between; }
+    .editor-code { padding: 12px 14px; font-family: "Cascadia Code", "Fira Code", Consolas, monospace; font-size: 13px; line-height: 1.6; color: #1E293B; overflow-x: auto; }
     .code-comment { color: #64748B; font-style: italic; }
     .code-kw { color: #2563EB; font-weight: bold; }
     .code-str { color: #059669; }
-    .code-fn { color: #7C3AED; }
-
-    /* Campo Interativo para Digitação do Aluno */
-    .input-code-area {
-      background-color: #FFFFFF;
-      border: 2px solid #3B82F6;
-      border-radius: 6px;
-      padding: 8px 12px;
-      margin: 10px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .input-code-label {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #1E40AF;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .input-code-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-    .input-code-field {
-      flex: 1;
-      padding: 9px 12px;
-      border: 1.5px solid var(--border-color);
-      border-radius: 6px;
-      font-family: "Cascadia Code", Consolas, monospace;
-      font-size: 13.5px;
-      color: #0F172A;
-      background-color: #F8FAFC;
-    }
-    .input-code-field:focus {
-      outline: none;
-      border-color: var(--primary);
-      background-color: #FFFFFF;
-      box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.15);
-    }
-    .btn-exec {
-      background-color: #2563EB;
-      color: #FFFFFF;
-      border: none;
-      border-radius: 6px;
-      padding: 9px 15px;
-      font-weight: 600;
-      font-size: 13px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
+    .input-code-area { background-color: #FFFFFF; border: 2px solid #3B82F6; border-radius: 6px; padding: 8px 12px; margin: 10px 0; display: flex; flex-direction: column; gap: 6px; }
+    .input-code-label { font-size: 11.5px; font-weight: 700; color: #1E40AF; display: flex; align-items: center; gap: 6px; }
+    .input-code-row { display: flex; gap: 8px; align-items: center; }
+    .input-code-field { flex: 1; padding: 9px 12px; border: 1.5px solid var(--border-color); border-radius: 6px; font-family: "Cascadia Code", Consolas, monospace; font-size: 13.5px; color: #0F172A; background-color: #F8FAFC; }
+    .input-code-field:focus { outline: none; border-color: var(--primary); background-color: #FFFFFF; box-shadow: 0 0 0 3px rgba(30,64,175,0.15); }
+    .btn-exec { background-color: #2563EB; color: #FFFFFF; border: none; border-radius: 6px; padding: 9px 15px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
     .btn-exec:hover { background-color: #1D4ED8; }
-
-    /* Terminal de Saída */
-    .terminal-box {
-      background-color: #0F172A;
-      color: #E2E8F0;
-      padding: 10px 12px;
-      border-radius: 6px;
-      font-family: monospace;
-      font-size: 12px;
-      margin-bottom: 14px;
-      line-height: 1.5;
-      display: none;
-    }
+    .terminal-box { background-color: #0F172A; color: #E2E8F0; padding: 10px 12px; border-radius: 6px; font-family: monospace; font-size: 12px; margin-bottom: 14px; line-height: 1.5; display: none; }
     .terminal-box.show { display: block; }
     .term-success { color: #4ADE80; font-weight: bold; }
     .term-error { color: #F87171; font-weight: bold; }
     .term-hint { color: #FDE047; margin-top: 5px; }
+    .options-label { font-size: 13px; font-weight: 700; color: #334155; margin-bottom: 8px; }
+    .options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+    .option-card { background-color: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 8px; padding: 10px 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s; }
+    .option-card:hover { border-color: var(--primary); background-color: #F8FAFC; }
+    .opt-left { display: flex; align-items: center; gap: 10px; overflow: hidden; }
+    .opt-tag { font-weight: 800; font-size: 12.5px; background-color: #E2E8F0; padding: 3px 7px; border-radius: 4px; color: #1E293B; flex-shrink: 0; }
+    .opt-code { font-family: monospace; font-size: 13px; font-weight: 600; color: #0F172A; word-break: break-all; }
+    .btn-use-opt { font-size: 11.5px; color: #2563EB; font-weight: 600; background: #EFF6FF; border: 1px solid #BFDBFE; padding: 5px 9px; border-radius: 4px; cursor: pointer; flex-shrink: 0; }
+    .btn-advance { background-color: var(--primary); color: #FFFFFF; border: none; border-radius: 8px; padding: 12px 18px; font-size: 14.5px; font-weight: 600; cursor: pointer; width: 100%; min-height: 46px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+    .btn-advance:disabled { background-color: #94A3B8; cursor: not-allowed; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+    .form-control { width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 6px; font-size: 14px; }
+    .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
 
-    /* Grade com 3 Alternativas Bem Espaçadas */
-    .options-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 8px;
-    }
-    .options-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .option-card {
-      background-color: #FFFFFF;
-      border: 1.5px solid var(--border-color);
-      border-radius: 8px;
-      padding: 10px 12px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.2s;
-    }
-    .option-card:hover {
-      border-color: var(--primary);
-      background-color: #F8FAFC;
-    }
-    .opt-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      overflow: hidden;
-    }
-    .opt-tag {
-      font-weight: 800;
-      font-size: 12.5px;
-      background-color: #E2E8F0;
-      padding: 3px 7px;
-      border-radius: 4px;
-      color: #1E293B;
-      flex-shrink: 0;
-    }
-    .opt-code {
-      font-family: monospace;
-      font-size: 13px;
-      font-weight: 600;
-      color: #0F172A;
-      word-break: break-all;
-    }
-    .btn-use-opt {
-      font-size: 11.5px;
-      color: #2563EB;
-      font-weight: 600;
-      background: #EFF6FF;
-      border: 1px solid #BFDBFE;
-      padding: 5px 9px;
-      border-radius: 4px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    /* Botão de Avanço */
-    .btn-advance {
-      background-color: var(--primary);
-      color: #FFFFFF;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 18px;
-      font-size: 14.5px;
-      font-weight: 600;
-      cursor: pointer;
-      width: 100%;
-      min-height: 46px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-advance:disabled {
-      background-color: #94A3B8;
-      cursor: not-allowed;
-    }
-
-    /* Formulário Inicial */
-    .form-group {
-      margin-bottom: 12px;
-    }
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-    .form-control {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1.5px solid var(--border-color);
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    /* CARTÃO DO PRINT COMPROVANTE (100% RESPONSIVO E COMPACTO) */
-    .comprovante-wrapper {
-      max-width: 580px;
-      margin: 0 auto 14px auto;
-    }
+    /* COMPROVANTE */
+    .comprovante-wrapper { max-width: 560px; margin: 0 auto 14px auto; }
     .comprovante-card {
       background-color: #FFFFFF;
-      border: 2px solid #0F172A;
-      border-radius: 8px;
-      padding: 14px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-    .comp-header {
-      text-align: center;
-      border-bottom: 2px solid #E2E8F0;
-      padding-bottom: 8px;
-      margin-bottom: 10px;
-    }
-    .comp-gov {
-      font-size: 10.5px;
-      font-weight: 800;
-      color: #475569;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-    }
-    .comp-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: #0F172A;
-      margin: 2px 0;
-    }
-    .comp-sub {
-      font-size: 11px;
-      color: #1E40AF;
-      font-weight: 600;
-    }
-    .comp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      background-color: #F8FAFC;
-      border: 1px solid #E2E8F0;
+      border: 2.5px solid #1E293B;
       border-radius: 6px;
-      padding: 8px 10px;
-      font-size: 12px;
-      margin-bottom: 10px;
+      padding: 20px 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      font-family: "Georgia", "Times New Roman", serif;
     }
-    .comp-grid span { display: block; }
-    .comp-grid strong { color: #0F172A; }
-
-    .comp-skills {
-      margin-bottom: 10px;
-    }
-    .comp-skill-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11.5px;
-      color: #334155;
-      padding: 3px 0;
-      border-bottom: 1px dashed #E2E8F0;
-    }
+    .comp-header { text-align: center; border-bottom: 2px solid #1E293B; padding-bottom: 12px; margin-bottom: 12px; }
+    .comp-prof { font-size: 11px; font-weight: 700; color: #334155; letter-spacing: 0.4px; margin-bottom: 2px; font-family: "Segoe UI", sans-serif; }
+    .comp-formacao { font-size: 10px; color: #475569; margin-bottom: 8px; font-family: "Segoe UI", sans-serif; }
+    .comp-title { font-size: 14.5px; font-weight: 800; color: #0F172A; letter-spacing: 0.5px; margin: 4px 0 3px 0; text-transform: uppercase; }
+    .comp-sub { font-size: 11px; color: #1E40AF; font-weight: 600; font-family: "Segoe UI", sans-serif; margin-bottom: 2px; }
+    .comp-curso { font-size: 10.5px; color: #475569; font-family: "Segoe UI", sans-serif; }
+    .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 10px 12px; font-size: 12px; margin-bottom: 12px; font-family: "Segoe UI", sans-serif; }
+    .comp-grid span { display: block; color: #64748B; font-size: 10.5px; margin-bottom: 1px; }
+    .comp-grid strong { color: #0F172A; font-size: 12px; }
+    .comp-skills { margin-bottom: 12px; }
+    .comp-skills-title { font-size: 10px; font-weight: 800; color: #475569; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-family: "Segoe UI", sans-serif; }
+    .comp-skill-row { display: flex; align-items: flex-start; gap: 6px; font-size: 11.5px; color: #334155; padding: 4px 0; border-bottom: 1px solid #F1F5F9; font-family: "Segoe UI", sans-serif; }
     .comp-skill-row:last-child { border-bottom: none; }
+    .comp-skill-check { color: #15803D; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .comp-stamp { background-color: #F0FDF4; border: 1.5px solid #16A34A; color: #15803D; padding: 9px 12px; border-radius: 4px; text-align: center; font-weight: 700; font-size: 13px; margin-bottom: 10px; font-family: "Segoe UI", sans-serif; letter-spacing: 0.3px; }
+    .comp-footer { display: flex; justify-content: space-between; align-items: flex-start; font-size: 10px; color: #64748B; border-top: 1.5px solid #E2E8F0; padding-top: 8px; font-family: "Segoe UI", sans-serif; }
+    .comp-footer-left { display: flex; flex-direction: column; gap: 2px; }
+    .comp-footer-link { color: #2563EB; font-size: 9px; word-break: break-all; text-decoration: none; }
 
-    .comp-stamp {
-      background-color: #F0FDF4;
-      border: 1.5px solid #16A34A;
-      color: #15803D;
-      padding: 7px 10px;
-      border-radius: 6px;
-      text-align: center;
-      font-weight: 800;
-      font-size: 12.5px;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
+    .locked-box { background-color: #F8FAFC; border: 2px dashed #CBD5E1; border-radius: 8px; padding: 24px 14px; text-align: center; color: #64748B; }
+    .alert-erro { background-color: #FEF2F2; border: 1.5px solid #FECACA; border-radius: 8px; padding: 12px 14px; text-align: center; color: #B91C1C; font-size: 13.5px; font-weight: 600; margin-bottom: 12px; display: none; }
+    .status-footer { background-color: #F8FAFC; border-top: 1px solid var(--border-color); padding: 8px 14px; font-size: 11.5px; color: #64748B; display: flex; justify-content: space-between; align-items: center; }
 
-    .comp-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 10px;
-      color: #64748B;
-      border-top: 1px solid #E2E8F0;
-      padding-top: 6px;
-    }
-
-    /* Estado Bloqueado */
-    .locked-box {
-      background-color: #F8FAFC;
-      border: 2px dashed #CBD5E1;
-      border-radius: 8px;
-      padding: 24px 14px;
-      text-align: center;
-      color: #64748B;
-    }
-
-    /* Barra de Status Inferior */
-    .status-footer {
-      background-color: #F8FAFC;
-      border-top: 1px solid var(--border-color);
-      padding: 8px 14px;
-      font-size: 11.5px;
-      color: #64748B;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Ajustes Específicos para Mobile */
     @media (max-width: 550px) {
       body { padding: 4px; }
       .content-body { padding: 12px; }
@@ -496,608 +112,527 @@
       .btn-exec { width: 100%; justify-content: center; }
       .option-card { flex-direction: column; align-items: flex-start; gap: 6px; }
       .btn-use-opt { width: 100%; text-align: center; }
+      .comp-footer { flex-direction: column; gap: 6px; }
     }
 
     @media print {
-      body { background: #FFF; padding: 0; }
+      @page { size: A4 portrait; margin: 2.5cm 2cm; }
+      body { background: #FFF !important; padding: 0 !important; display: block !important; }
       .app-header, .nav-tabs, .progress-bar, .status-footer, .no-print { display: none !important; }
-      .app-container { border: none; box-shadow: none; max-width: 100%; }
-      .comprovante-wrapper { max-width: 100%; margin: 0; }
-      .comprovante-card { border: 2px solid #000; }
+      .app-container { border: none !important; box-shadow: none !important; max-width: 100% !important; border-radius: 0 !important; }
+      .content-body { padding: 0 !important; }
+      .step-panel { display: none !important; }
+      #step5 { display: block !important; }
+      h2, .scenario-desc, .alert-erro { display: none !important; }
+      .comprovante-wrapper { max-width: 100% !important; margin: 0 auto !important; }
+      .comprovante-card { border: 2.5px solid #000 !important; box-shadow: none !important; page-break-inside: avoid; }
+      #lockedView { display: none !important; }
+      #unlockedView { display: block !important; }
+      .btn-advance { display: none !important; }
+      .comp-footer-link { color: #000 !important; }
     }
   </style>
 </head>
 <body>
+<div class="app-container">
 
-  <div class="app-container">
-    <div class="app-header">
-      <div class="app-header-left">
-        <span>💻</span>
-        <span>Simulador de Arquivos Python</span>
-        <span class="badge-turma">2º Ano TDS</span>
+  <div class="app-header">
+    <div class="app-header-left">
+      <span>💻</span>
+      <span>Simulador de Arquivos Python</span>
+      <span class="badge-turma">2º Ano TDS</span>
+    </div>
+    <div style="font-size:11.5px;color:#94A3B8;">SEDUC-SP</div>
+  </div>
+
+  <div class="nav-tabs">
+    <button class="tab-btn active" id="tab0" onclick="goToStep(0)">1. Estudante</button>
+    <button class="tab-btn" id="tab1" onclick="goToStep(1)">2. Aula 1 (with)</button>
+    <button class="tab-btn" id="tab2" onclick="goToStep(2)">3. Aula 2 (strip)</button>
+    <button class="tab-btn" id="tab3" onclick="goToStep(3)">4. Aula 3 (w vs a)</button>
+    <button class="tab-btn" id="tab4" onclick="goToStep(4)">5. Aula 4 (CSV)</button>
+    <button class="tab-btn" id="tab5" onclick="goToStep(5)">6. Comprovante</button>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <div class="content-body">
+
+    <!-- ETAPA 0: Identificação -->
+    <div class="step-panel active" id="step0">
+      <h2>👤 Identificação do Estudante</h2>
+      <p class="scenario-desc">Preencha seus dados para habilitar o ambiente de treinamento. Eles serão registrados no comprovante final.</p>
+      <div class="form-group">
+        <label>Nome Completo do Aluno: <span style="color:#B91C1C;">*</span></label>
+        <input type="text" id="inputNome" class="form-control" placeholder="Digite seu nome completo..." onkeypress="if(event.key==='Enter')iniciarLaboratorio()">
       </div>
-      <div style="font-size: 11.5px; color: #94A3B8;">SEDUC-SP</div>
-    </div>
-
-    <!-- Abas de Navegação -->
-    <div class="nav-tabs" id="navTabs">
-      <button class="tab-btn active" id="tab0" onclick="goToStep(0)">1. Estudante</button>
-      <button class="tab-btn" id="tab1" onclick="goToStep(1)">2. Aula 1 (with)</button>
-      <button class="tab-btn" id="tab2" onclick="goToStep(2)">3. Aula 2 (strip)</button>
-      <button class="tab-btn" id="tab3" onclick="goToStep(3)">4. Aula 3 (w vs a)</button>
-      <button class="tab-btn" id="tab4" onclick="goToStep(4)">5. Aula 4 (CSV)</button>
-      <button class="tab-btn" id="tab5" onclick="goToStep(5)">6. Comprovante</button>
-    </div>
-
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-
-    <div class="content-body">
-
-      <!-- ETAPA 0: Identificação -->
-      <div class="step-panel active" id="step0">
-        <h2>👤 Identificação do Estudante (2º Ano)</h2>
-        <p class="scenario-desc">Preencha seus dados para habilitar o ambiente de treinamento prático. Eles serão registrados no seu comprovante final de avaliação.</p>
-
-        <div class="form-group">
-          <label>Nome Completo do Aluno:</label>
-          <input type="text" id="inputNome" class="form-control" placeholder="Digite seu nome completo..." onkeypress="if(event.key==='Enter')iniciarLaboratorio()">
-        </div>
-
-        <div class="form-group">
-          <label>Turma / Curso:</label>
-          <input type="text" id="inputTurma" class="form-control" value="2º Técnico em Desenvolvimento de Sistemas">
-        </div>
-
-        <div class="form-group">
-          <label>Escola Estadual:</label>
-          <input type="text" id="inputEscola" class="form-control" value="E.E. Professor Simão Mathias">
-        </div>
-
-        <div style="margin-top: 16px;">
-          <button class="btn-advance" onclick="iniciarLaboratorio()">
-            Entrar no Laboratório de Código ➔
-          </button>
-        </div>
+      <div class="form-group">
+        <label>Turma:</label>
+        <input type="text" id="inputTurma" class="form-control" value="2º C">
       </div>
+      <div class="form-group">
+        <label>Escola Estadual:</label>
+        <input type="text" id="inputEscola" class="form-control" value="E.E. Professor Simão Mathias">
+      </div>
+      <div style="margin-top:16px;">
+        <button class="btn-advance" onclick="iniciarLaboratorio()">Entrar no Laboratório de Código ➔</button>
+      </div>
+    </div>
 
-      <!-- ETAPA 1: Aula 1 (open e with) -->
-      <div class="step-panel" id="step1">
-        <h2>Etapa 1: Gerenciamento Seguro de Recursos (open e with)</h2>
-        <p class="scenario-desc">
-          <strong>Cenário:</strong> No sistema de monitoramento, precisamos abrir o arquivo <code>dados.txt</code> para leitura. Complete a linha de abertura utilizando o Context Manager para garantir que o Sistema Operacional feche o arquivo automaticamente mesmo em caso de falha.
-        </p>
-
-        <div class="editor-card">
-          <div class="editor-top">
-            <span>app_leitura.py</span>
-            <span>Python 3.12</span>
-          </div>
-          <div class="editor-code">
+    <!-- ETAPA 1: Aula 1 — resposta correta: letra C -->
+    <div class="step-panel" id="step1">
+      <h2>Etapa 1: Gerenciamento Seguro de Recursos (open e with)</h2>
+      <p class="scenario-desc"><strong>Cenário:</strong> No sistema de monitoramento, precisamos abrir o arquivo <code>dados.txt</code> para leitura. Complete a linha de abertura utilizando o Context Manager para garantir que o Sistema Operacional feche o arquivo automaticamente mesmo em caso de falha.</p>
+      <div class="editor-card">
+        <div class="editor-top"><span>app_leitura.py</span><span>Python 3.12</span></div>
+        <div class="editor-code">
 1  <span class="code-comment"># Abrir o arquivo com garantia de fechamento automático</span>
-2  <span id="codePreview1" style="background-color: #FEF08A; padding: 2px 6px; border-radius: 4px; font-weight: bold;">[ complete o comando de abertura abaixo ]</span>
+2  <span id="codePreview1" style="background-color:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:bold;">[ complete o comando de abertura abaixo ]</span>
 3      conteudo = f.read()
 4      print(conteudo)
-          </div>
         </div>
-
-        <div class="input-code-area">
-          <div class="input-code-label">
-            <span>⌨️</span> <span>DIGITE A RESPOSTA (OU ESCOLHA UMA OPÇÃO ABAIXO):</span>
-          </div>
-          <div class="input-code-row">
-            <input type="text" id="inputField1" class="input-code-field" placeholder="Ex: with open(&quot;dados.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:" onkeypress="handleEnter(event, 1)">
-            <button class="btn-exec" onclick="testarCodigo(1)">
-              ▶ Executar Código
-            </button>
-          </div>
-        </div>
-
-        <div class="terminal-box" id="termBox1"></div>
-
-        <div class="options-label">Alternativas para o 2º ano (clique para carregar no editor):</div>
-        <div class="options-list">
-          <div class="option-card" onclick="usarOpcao(1, 'f = open(&quot;dados.txt&quot;, &quot;r&quot;)')">
-            <div class="opt-left">
-              <span class="opt-tag">A</span>
-              <span class="opt-code">f = open("dados.txt", "r")</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(1, 'with open(&quot;dados.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:')">
-            <div class="opt-left">
-              <span class="opt-tag">B</span>
-              <span class="opt-code">with open("dados.txt", "r", encoding="utf-8") as f:</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(1, 'f = open(&quot;dados.txt&quot;, &quot;r&quot;); f.close()')">
-            <div class="opt-left">
-              <span class="opt-tag">C</span>
-              <span class="opt-code">f = open("dados.txt", "r"); f.close()</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-        </div>
-
-        <button class="btn-advance" id="btnNext1" disabled onclick="goToStep(2)">
-          Próxima Etapa: Leitura Linha a Linha ➔
-        </button>
       </div>
+      <div class="input-code-area">
+        <div class="input-code-label"><span>⌨️</span><span>DIGITE A RESPOSTA (OU ESCOLHA UMA OPÇÃO ABAIXO):</span></div>
+        <div class="input-code-row">
+          <input type="text" id="inputField1" class="input-code-field" placeholder='Ex: with open("dados.txt", "r", encoding="utf-8") as f:' onkeypress="handleEnter(event,1)">
+          <button class="btn-exec" onclick="testarCodigo(1)">▶ Executar</button>
+        </div>
+      </div>
+      <div class="terminal-box" id="termBox1"></div>
+      <div class="options-label">Alternativas (clique para carregar no editor):</div>
+      <div class="options-list">
+        <div class="option-card" onclick="usarOpcao(1, 'f = open(&quot;dados.txt&quot;, &quot;r&quot;)')">
+          <div class="opt-left"><span class="opt-tag">A</span><span class="opt-code">f = open("dados.txt", "r")</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+        <div class="option-card" onclick="usarOpcao(1, 'f = open(&quot;dados.txt&quot;, &quot;r&quot;); f.close()')">
+          <div class="opt-left"><span class="opt-tag">B</span><span class="opt-code">f = open("dados.txt", "r"); f.close()</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+        <div class="option-card" onclick="usarOpcao(1, 'with open(&quot;dados.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:')">
+          <div class="opt-left"><span class="opt-tag">C</span><span class="opt-code">with open("dados.txt", "r", encoding="utf-8") as f:</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+      </div>
+      <button class="btn-advance" id="btnNext1" disabled onclick="goToStep(2)">Próxima Etapa: Leitura Linha a Linha ➔</button>
+    </div>
 
-      <!-- ETAPA 2: Aula 2 (Linha a linha e .strip()) -->
-      <div class="step-panel" id="step2">
-        <h2>Etapa 2: Leitura Linha a Linha e Limpeza de Dados</h2>
-        <p class="scenario-desc">
-          <strong>Cenário:</strong> Ao iterar sobre o arquivo de vendas, cada linha lida traz a quebra invisível <code>
-</code> e espaços vazios nas extremidades: <code>"  Caderno, 15.50 
-"</code>. Qual método do Python deve ser aplicado na variável <code>linha</code> para higienizar a string antes do fatiamento e conversão com <code>float()</code>?
-        </p>
-
-        <div class="editor-card">
-          <div class="editor-top">
-            <span>processa_vendas.py</span>
-            <span>Python 3.12</span>
-          </div>
-          <div class="editor-code">
+    <!-- ETAPA 2: Aula 2 — resposta correta: letra B -->
+    <div class="step-panel" id="step2">
+      <h2>Etapa 2: Leitura Linha a Linha e Limpeza de Dados</h2>
+      <p class="scenario-desc"><strong>Cenário:</strong> Ao iterar sobre o arquivo de vendas, cada linha lida traz a quebra invisível <code>\n</code> e espaços nas extremidades. Qual método do Python deve ser aplicado na variável <code>linha</code> para limpar a string antes da conversão com <code>float()</code>?</p>
+      <div class="editor-card">
+        <div class="editor-top"><span>processa_vendas.py</span><span>Python 3.12</span></div>
+        <div class="editor-code">
 1  <span class="code-kw">with</span> open(<span class="code-str">"vendas.csv"</span>, <span class="code-str">"r"</span>, encoding=<span class="code-str">"utf-8"</span>) <span class="code-kw">as</span> f:
 2      next(f)  <span class="code-comment"># Pula o cabeçalho</span>
 3      <span class="code-kw">for</span> linha <span class="code-kw">in</span> f:
-4          linha = <span id="codePreview2" style="background-color: #FEF08A; padding: 2px 6px; border-radius: 4px; font-weight: bold;">[ complete o método de limpeza ]</span>
+4          linha = <span id="codePreview2" style="background-color:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:bold;">[ complete o método de limpeza ]</span>
 5          campos = linha.split(<span class="code-str">","</span>)
 6          valor = float(campos[1])
-          </div>
         </div>
-
-        <div class="input-code-area">
-          <div class="input-code-label">
-            <span>⌨️</span> <span>DIGITE A RESPOSTA (OU ESCOLHA UMA OPÇÃO ABAIXO):</span>
-          </div>
-          <div class="input-code-row">
-            <input type="text" id="inputField2" class="input-code-field" placeholder="Ex: linha.strip()" onkeypress="handleEnter(event, 2)">
-            <button class="btn-exec" onclick="testarCodigo(2)">
-              ▶ Executar Código
-            </button>
-          </div>
-        </div>
-
-        <div class="terminal-box" id="termBox2"></div>
-
-        <div class="options-label">Alternativas para o 2º ano (clique para carregar no editor):</div>
-        <div class="options-list">
-          <div class="option-card" onclick="usarOpcao(2, 'linha.split(&quot;\n&quot;)')">
-            <div class="opt-left">
-              <span class="opt-tag">A</span>
-              <span class="opt-code">linha.split("
-")</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(2, 'linha.strip()')">
-            <div class="opt-left">
-              <span class="opt-tag">B</span>
-              <span class="opt-code">linha.strip()</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(2, 'linha.replace(&quot; &quot;, &quot;&quot;)')">
-            <div class="opt-left">
-              <span class="opt-tag">C</span>
-              <span class="opt-code">linha.replace(" ", "")</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-        </div>
-
-        <button class="btn-advance" id="btnNext2" disabled onclick="goToStep(3)">
-          Próxima Etapa: Modos de Escrita ➔
-        </button>
       </div>
-
-      <!-- ETAPA 3: Aula 3 (w vs a) -->
-      <div class="step-panel" id="step3">
-        <h2>Etapa 3: Decisão de Negócio e Modos de Escrita ("w" vs "a")</h2>
-        <p class="scenario-desc">
-          <strong>Cenário:</strong> O banco de dados do caixa já possui 40 vendas realizadas no período da manhã no arquivo <code>caixa.txt</code>. Às 15h, o sistema precisa salvar uma nova venda. Qual modo de abertura em Python deve ser passado como segundo argumento de <code>open()</code> para anexar o registro no final sem apagar as vendas da manhã?
-        </p>
-
-        <div class="editor-card">
-          <div class="editor-top">
-            <span>registrar_venda.py</span>
-            <span>Python 3.12</span>
-          </div>
-          <div class="editor-code">
-1  registro = <span class="code-str">"Venda #41 | Mouse Gamer | R$ 120.00
-"</span>
-2  <span class="code-comment"># Abrir preservando o histórico de vendas do arquivo</span>
-3  <span class="code-kw">with</span> open(<span class="code-str">"caixa.txt"</span>, <span id="codePreview3" style="background-color: #FEF08A; padding: 2px 6px; border-radius: 4px; font-weight: bold;">[ "modo" ]</span>, encoding=<span class="code-str">"utf-8"</span>) <span class="code-kw">as</span> f:
-4      f.write(registro)
-          </div>
+      <div class="input-code-area">
+        <div class="input-code-label"><span>⌨️</span><span>DIGITE A RESPOSTA (OU ESCOLHA UMA OPÇÃO ABAIXO):</span></div>
+        <div class="input-code-row">
+          <input type="text" id="inputField2" class="input-code-field" placeholder="Ex: linha.strip()" onkeypress="handleEnter(event,2)">
+          <button class="btn-exec" onclick="testarCodigo(2)">▶ Executar</button>
         </div>
-
-        <div class="input-code-area">
-          <div class="input-code-label">
-            <span>⌨️</span> <span>DIGITE O MODO DE ABERTURA CORRETO:</span>
-          </div>
-          <div class="input-code-row">
-            <input type="text" id="inputField3" class="input-code-field" placeholder="Ex: &quot;a&quot;" onkeypress="handleEnter(event, 3)">
-            <button class="btn-exec" onclick="testarCodigo(3)">
-              ▶ Executar Código
-            </button>
-          </div>
-        </div>
-
-        <div class="terminal-box" id="termBox3"></div>
-
-        <div class="options-label">Alternativas para o 2º ano (clique para carregar no editor):</div>
-        <div class="options-list">
-          <div class="option-card" onclick="usarOpcao(3, '&quot;w&quot;')">
-            <div class="opt-left">
-              <span class="opt-tag">A</span>
-              <span class="opt-code">"w" (Write / Sobrescrever)</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(3, '&quot;a&quot;')">
-            <div class="opt-left">
-              <span class="opt-tag">B</span>
-              <span class="opt-code">"a" (Append / Anexar)</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(3, '&quot;r+&quot;')">
-            <div class="opt-left">
-              <span class="opt-tag">C</span>
-              <span class="opt-code">"r+" (Read and Write do início)</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-        </div>
-
-        <button class="btn-advance" id="btnNext3" disabled onclick="goToStep(4)">
-          Próxima Etapa: Integrador CSV ➔
-        </button>
       </div>
-
-      <!-- ETAPA 4: Aula 4 (CSV nativo vs split) -->
-      <div class="step-panel" id="step4">
-        <h2>Etapa 4: Interoperabilidade e Biblioteca CSV (RFC 4180)</h2>
-        <p class="scenario-desc">
-          <strong>Cenário (RH da Conecta):</strong> O arquivo <code>funcionarios.csv</code> possui nomes compostos entre aspas: <code>"Silva, João",Tecnologia,8500.00,3</code>. O método <code>.split(",")</code> quebra o nome ao meio gerando 5 colunas inválidas. Qual é o leitor nativo da biblioteca <code>csv</code> que respeita as aspas e mantém as 4 colunas intactas?
-        </p>
-
-        <div class="editor-card">
-          <div class="editor-top">
-            <span>integrador_rh.py</span>
-            <span>Python 3.12</span>
-          </div>
-          <div class="editor-code">
-1  <span class="code-kw">import</span> csv
-2  
-3  <span class="code-kw">with</span> open(<span class="code-str">"funcionarios.csv"</span>, <span class="code-str">"r"</span>, encoding=<span class="code-str">"utf-8"</span>) <span class="code-kw">as</span> f:
-4      leitor = <span id="codePreview4" style="background-color: #FEF08A; padding: 2px 6px; border-radius: 4px; font-weight: bold;">[ defina o leitor correto ]</span>
-5      next(leitor)  <span class="code-comment"># Pula cabeçalho</span>
-6      <span class="code-kw">for</span> linha <span class="code-kw">in</span> leitor:
-7          print(f<span class="code-str">"Nome: {linha[0]} | Salário: {linha[2]}"</span>)
-          </div>
+      <div class="terminal-box" id="termBox2"></div>
+      <div class="options-label">Alternativas (clique para carregar no editor):</div>
+      <div class="options-list">
+        <div class="option-card" onclick="usarOpcao(2, 'linha.split(&quot;\\n&quot;)')">
+          <div class="opt-left"><span class="opt-tag">A</span><span class="opt-code">linha.split("\n")</span></div>
+          <button class="btn-use-opt">Inserir</button>
         </div>
-
-        <div class="input-code-area">
-          <div class="input-code-label">
-            <span>⌨️</span> <span>DIGITE A RESPOSTA (OU ESCOLHA UMA OPÇÃO ABAIXO):</span>
-          </div>
-          <div class="input-code-row">
-            <input type="text" id="inputField4" class="input-code-field" placeholder="Ex: csv.reader(f)" onkeypress="handleEnter(event, 4)">
-            <button class="btn-exec" onclick="testarCodigo(4)">
-              ▶ Executar Código
-            </button>
-          </div>
+        <div class="option-card" onclick="usarOpcao(2, 'linha.strip()')">
+          <div class="opt-left"><span class="opt-tag">B</span><span class="opt-code">linha.strip()</span></div>
+          <button class="btn-use-opt">Inserir</button>
         </div>
-
-        <div class="terminal-box" id="termBox4"></div>
-
-        <div class="options-label">Alternativas para o 2º ano (clique para carregar no editor):</div>
-        <div class="options-list">
-          <div class="option-card" onclick="usarOpcao(4, 'f.readlines()')">
-            <div class="opt-left">
-              <span class="opt-tag">A</span>
-              <span class="opt-code">f.readlines()</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(4, 'csv.reader(f)')">
-            <div class="opt-left">
-              <span class="opt-tag">B</span>
-              <span class="opt-code">csv.reader(f)</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
-
-          <div class="option-card" onclick="usarOpcao(4, 'csv.split(f, &quot;,&quot;)')">
-            <div class="opt-left">
-              <span class="opt-tag">C</span>
-              <span class="opt-code">csv.split(f, ",")</span>
-            </div>
-            <button class="btn-use-opt">Inserir</button>
-          </div>
+        <div class="option-card" onclick="usarOpcao(2, 'linha.replace(&quot; &quot;, &quot;&quot;)')">
+          <div class="opt-left"><span class="opt-tag">C</span><span class="opt-code">linha.replace(" ", "")</span></div>
+          <button class="btn-use-opt">Inserir</button>
         </div>
-
-        <button class="btn-advance" id="btnNext4" disabled onclick="goToStep(5)">
-          Emitir Comprovante Oficial da SEDUC-SP ➔
-        </button>
       </div>
-
-      <!-- ETAPA 5: Comprovante Oficial SEDUC-SP -->
-      <div class="step-panel" id="step5">
-        <h2 style="margin-bottom: 4px;">🎓 Comprovante Oficial de Conclusão</h2>
-        <p class="scenario-desc" style="margin-bottom: 12px;">Documento oficial para registro de atividades no AVA e Google Sala de Aula.</p>
-
-        <div id="lockedView" class="locked-box">
-          <div style="font-size: 32px; margin-bottom: 8px;">🔒</div>
-          <h3 style="color: #334155; margin-bottom: 6px;">Comprovante Bloqueado</h3>
-          <p style="font-size: 13px;">Execute e acerte com sucesso os 4 desafios práticos das etapas anteriores para liberar este comprovante.</p>
-        </div>
-
-        <div id="unlockedView" style="display: none;">
-          <div class="comprovante-wrapper">
-            <div class="comprovante-card" id="comprovantePrint">
-              <div class="comp-header">
-                <div class="comp-gov">Governo do Estado de São Paulo — Secretaria da Educação</div>
-                <div class="comp-title">COMPROVANTE OFICIAL DE PRÁTICA EM LABORATÓRIO</div>
-                <div class="comp-sub">Ensino Técnico em Desenvolvimento de Sistemas | 2º Ano</div>
-              </div>
-
-              <div class="comp-grid">
-                <div><span>Estudante:</span> <strong id="outNome">---</strong></div>
-                <div><span>Turma:</span> <strong id="outTurma">---</strong></div>
-                <div><span>Unidade Escolar:</span> <strong id="outEscola">---</strong></div>
-                <div><span>Emissão:</span> <strong id="outData">---</strong></div>
-              </div>
-
-              <div class="comp-skills">
-                <div style="font-size: 11px; font-weight: 800; color: #475569; margin-bottom: 5px; text-transform: uppercase;">
-                  Competências Técnicas Avaliadas e Concluídas:
-                </div>
-                <div class="comp-skill-row">
-                  <span>✔</span> <span><strong>Aula 1:</strong> Prevenção de vazamento de descritores com <code>with open()</code></span>
-                </div>
-                <div class="comp-skill-row">
-                  <span>✔</span> <span><strong>Aula 2:</strong> Higienização de quebra de linha <code>
-</code> com <code>strip()</code></span>
-                </div>
-                <div class="comp-skill-row">
-                  <span>✔</span> <span><strong>Aula 3:</strong> Preservação de dados históricos usando modo <code>"a"</code> (Append)</span>
-                </div>
-                <div class="comp-skill-row">
-                  <span>✔</span> <span><strong>Aula 4:</strong> Interoperabilidade de planilhas e nomes com aspas via <code>csv.reader()</code></span>
-                </div>
-              </div>
-
-              <div class="comp-stamp">
-                <span>🏅</span>
-                <span>STATUS: 100% DE APROVEITAMENTO — APROVADO</span>
-              </div>
-
-              <div class="comp-footer">
-                <div>Docente: <strong>Prof. Thiago Fernando</strong></div>
-                <div>Autenticação: <strong>SISANO1C1B3S20-2ANO-VALIDO</strong></div>
-              </div>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 8px; flex-direction: column;" class="no-print">
-            <button class="btn-advance" style="background-color: #16A34A;" onclick="window.print()">
-              🖨️ Salvar Comprovante em PDF / Imprimir
-            </button>
-            <button class="btn-advance" style="background-color: #475569;" onclick="reiniciarLab()">
-              🔄 Reiniciar Laboratório
-            </button>
-          </div>
-        </div>
-
-      </div>
-
+      <button class="btn-advance" id="btnNext2" disabled onclick="goToStep(3)">Próxima Etapa: Modos de Escrita ➔</button>
     </div>
 
-    <div class="status-footer">
-      <div>● Python 3.12 | UTF-8 | Prof. Thiago Fernando</div>
-      <div id="statusLab">Aguardando Início</div>
+    <!-- ETAPA 3: Aula 3 — resposta correta: letra A -->
+    <div class="step-panel" id="step3">
+      <h2>Etapa 3: Decisão de Negócio — Modos de Escrita ("w" vs "a")</h2>
+      <p class="scenario-desc"><strong>Cenário:</strong> O caixa já possui 40 vendas da manhã salvas no arquivo <code>caixa.txt</code>. Às 15h, o sistema precisa registrar uma nova venda. Qual modo preserva o histórico sem apagar nada?</p>
+      <div class="editor-card">
+        <div class="editor-top"><span>registrar_venda.py</span><span>Python 3.12</span></div>
+        <div class="editor-code">
+1  registro = <span class="code-str">"Venda #41 | Mouse Gamer | R$ 120.00\n"</span>
+2  <span class="code-comment"># Abrir preservando o histórico de vendas</span>
+3  <span class="code-kw">with</span> open(<span class="code-str">"caixa.txt"</span>, <span id="codePreview3" style="background-color:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:bold;">[ "modo" ]</span>, encoding=<span class="code-str">"utf-8"</span>) <span class="code-kw">as</span> f:
+4      f.write(registro)
+        </div>
+      </div>
+      <div class="input-code-area">
+        <div class="input-code-label"><span>⌨️</span><span>DIGITE O MODO DE ABERTURA CORRETO:</span></div>
+        <div class="input-code-row">
+          <input type="text" id="inputField3" class="input-code-field" placeholder='Ex: "a"' onkeypress="handleEnter(event,3)">
+          <button class="btn-exec" onclick="testarCodigo(3)">▶ Executar</button>
+        </div>
+      </div>
+      <div class="terminal-box" id="termBox3"></div>
+      <div class="options-label">Alternativas (clique para carregar no editor):</div>
+      <div class="options-list">
+        <div class="option-card" onclick="usarOpcao(3, '&quot;a&quot;')">
+          <div class="opt-left"><span class="opt-tag">A</span><span class="opt-code">"a" — Append: adiciona no final, preserva o histórico</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+        <div class="option-card" onclick="usarOpcao(3, '&quot;w&quot;')">
+          <div class="opt-left"><span class="opt-tag">B</span><span class="opt-code">"w" — Write: apaga tudo e começa do zero</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+        <div class="option-card" onclick="usarOpcao(3, '&quot;r+&quot;')">
+          <div class="opt-left"><span class="opt-tag">C</span><span class="opt-code">"r+" — Read and Write do início</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+      </div>
+      <button class="btn-advance" id="btnNext3" disabled onclick="goToStep(4)">Próxima Etapa: Leitura CSV ➔</button>
+    </div>
+
+    <!-- ETAPA 4: Aula 4 — resposta correta: letra C -->
+    <div class="step-panel" id="step4">
+      <h2>Etapa 4: Leitura de Planilha CSV com Separação de Colunas</h2>
+      <p class="scenario-desc"><strong>Cenário:</strong> O arquivo <code>vendas.csv</code> possui produtos e preços separados por vírgula. Para separar cada coluna corretamente, qual método devemos usar na variável <code>linha</code> após o <code>.strip()</code>?</p>
+      <div class="editor-card">
+        <div class="editor-top"><span>ler_vendas.py</span><span>Python 3.12</span></div>
+        <div class="editor-code">
+1  <span class="code-kw">with</span> open(<span class="code-str">"vendas.csv"</span>, <span class="code-str">"r"</span>, encoding=<span class="code-str">"utf-8"</span>) <span class="code-kw">as</span> f:
+2      next(f)  <span class="code-comment"># Pula o cabeçalho</span>
+3      <span class="code-kw">for</span> linha <span class="code-kw">in</span> f:
+4          linha = linha.strip()
+5          campos = <span id="codePreview4" style="background-color:#FEF08A;padding:2px 6px;border-radius:4px;font-weight:bold;">[ separe as colunas aqui ]</span>
+6          print(<span class="code-str">f"Produto: {campos[0]} | Preço: {campos[1]}"</span>)
+        </div>
+      </div>
+      <div class="input-code-area">
+        <div class="input-code-label"><span>⌨️</span><span>DIGITE A RESPOSTA (OU ESCOLHA UMA OPÇÃO ABAIXO):</span></div>
+        <div class="input-code-row">
+          <input type="text" id="inputField4" class="input-code-field" placeholder='Ex: linha.split(",")' onkeypress="handleEnter(event,4)">
+          <button class="btn-exec" onclick="testarCodigo(4)">▶ Executar</button>
+        </div>
+      </div>
+      <div class="terminal-box" id="termBox4"></div>
+      <div class="options-label">Alternativas (clique para carregar no editor):</div>
+      <div class="options-list">
+        <div class="option-card" onclick="usarOpcao(4, 'linha.strip()')">
+          <div class="opt-left"><span class="opt-tag">A</span><span class="opt-code">linha.strip()</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+        <div class="option-card" onclick="usarOpcao(4, 'linha.read()')">
+          <div class="opt-left"><span class="opt-tag">B</span><span class="opt-code">linha.read()</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+        <div class="option-card" onclick="usarOpcao(4, 'linha.split(&quot;,&quot;)')">
+          <div class="opt-left"><span class="opt-tag">C</span><span class="opt-code">linha.split(",")</span></div>
+          <button class="btn-use-opt">Inserir</button>
+        </div>
+      </div>
+      <button class="btn-advance" id="btnNext4" disabled onclick="goToStep(5)">Emitir Comprovante ➔</button>
+    </div>
+
+    <!-- ETAPA 5: Comprovante -->
+    <div class="step-panel" id="step5">
+      <h2 style="margin-bottom:4px;">Comprovante de Conclusão</h2>
+      <p class="scenario-desc" style="margin-bottom:12px;">Documento para registro no AVA e Google Sala de Aula.</p>
+
+      <div id="alertaErro" class="alert-erro">
+        Nota insuficiente. Você cometeu 3 ou mais erros.<br>
+        Reinicie o laboratório e tente novamente com mais atenção.
+      </div>
+
+      <div id="lockedView" class="locked-box">
+        <div style="font-size:32px;margin-bottom:8px;">🔒</div>
+        <h3 style="color:#334155;margin-bottom:6px;">Comprovante Bloqueado</h3>
+        <p style="font-size:13px;">Conclua os 4 desafios com sucesso para liberar este comprovante.</p>
+      </div>
+
+      <div id="unlockedView" style="display:none;">
+        <div class="comprovante-wrapper">
+          <div class="comprovante-card" id="comprovantePrint">
+
+            <div class="comp-header">
+              <div class="comp-prof">Atividade proposta por Prof. Thiago Fernando</div>
+              <div class="comp-formacao">Graduando em Engenharia da Computação &nbsp;|&nbsp; Licenciado em Matemática</div>
+              <div class="comp-title">Declaração de Participação e Aproveitamento</div>
+              <div class="comp-sub">Atividade Prática de Laboratório — Linguagem Python</div>
+              <div class="comp-curso">Ensino Técnico em Desenvolvimento de Sistemas</div>
+            </div>
+
+            <div class="comp-grid">
+              <div><span>Estudante</span><strong id="outNome">---</strong></div>
+              <div><span>Turma</span><strong id="outTurma">---</strong></div>
+              <div><span>Unidade Escolar</span><strong id="outEscola">---</strong></div>
+              <div><span>Data de Emissão</span><strong id="outData">---</strong></div>
+            </div>
+
+            <div class="comp-skills">
+              <div class="comp-skills-title">Competências Técnicas Avaliadas e Concluídas</div>
+              <div class="comp-skill-row"><span class="comp-skill-check">✔</span><span><strong>Aula 1:</strong> Fechamento automático de arquivos com <code>with open()</code></span></div>
+              <div class="comp-skill-row"><span class="comp-skill-check">✔</span><span><strong>Aula 2:</strong> Limpeza de quebra de linha <code>\n</code> com <code>strip()</code></span></div>
+              <div class="comp-skill-row"><span class="comp-skill-check">✔</span><span><strong>Aula 3:</strong> Preservação de dados históricos usando modo <code>"a"</code> (Append)</span></div>
+              <div class="comp-skill-row"><span class="comp-skill-check">✔</span><span><strong>Aula 4:</strong> Separação de colunas CSV com <code>split(",")</code></span></div>
+            </div>
+
+            <div class="comp-stamp" id="compStamp">
+              RESULTADO: APROVADO — <span id="outPorcentagem">---</span> DE APROVEITAMENTO
+            </div>
+
+            <div class="comp-footer">
+              <div class="comp-footer-left">
+                <div>Docente: <strong>Prof. Thiago Fernando</strong></div>
+                <a class="comp-footer-link" href="https://thiago-spba.github.io/treinamento-arquivos-python/" target="_blank">
+                  thiago-spba.github.io/treinamento-arquivos-python
+                </a>
+              </div>
+              <div>Autenticação: <strong>SISANO1C1B3S20-2ANO-VALIDO</strong></div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-direction:column;" class="no-print">
+          <button class="btn-advance" style="background-color:#15803D;" onclick="window.print()">🖨️ Salvar Comprovante em PDF / Imprimir</button>
+          <button class="btn-advance" style="background-color:#475569;" onclick="reiniciarLab()">🔄 Reiniciar Laboratório</button>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <script>
-    var aluno = { nome: "", turma: "2º Técnico em Desenvolvimento de Sistemas", escola: "E.E. Professor Simão Mathias", data: "" };
-    var progresso = { s1: false, s2: false, s3: false, s4: false };
+  <div class="status-footer">
+    <div>● Python 3.12 | UTF-8 | Prof. Thiago Fernando</div>
+    <div id="statusLab">Aguardando Início</div>
+  </div>
 
-    function goToStep(idx) {
-      if (idx === 5 && !(progresso.s1 && progresso.s2 && progresso.s3 && progresso.s4)) {
-        alert("Complete os 4 desafios práticos com sucesso para liberar o Comprovante Oficial!");
+</div>
+
+<script>
+  var aluno = { nome: "", turma: "2º C", escola: "E.E. Professor Simão Mathias", data: "" };
+  var progresso = { s1: false, s2: false, s3: false, s4: false };
+  var erros = 0;
+  var erradosPorStep = { 1: false, 2: false, 3: false, 4: false };
+
+  function calcularPorcentagem() {
+    return 100 - (erros * 20);
+  }
+
+  function registrarErro(step) {
+    if (!erradosPorStep[step]) {
+      erradosPorStep[step] = true;
+      erros++;
+      var pct = calcularPorcentagem();
+      if (erros >= 3) {
+        document.getElementById("statusLab").innerText = "⚠ Nota insuficiente (" + pct + "%) — Reinicie o laboratório";
+        document.getElementById("statusLab").style.color = "#B91C1C";
+      } else {
+        document.getElementById("statusLab").innerText = "Erros: " + erros + " | Nota parcial: " + pct + "%";
+      }
+    }
+  }
+
+  function goToStep(idx) {
+    if (idx === 5) {
+      if (!(progresso.s1 && progresso.s2 && progresso.s3 && progresso.s4)) {
+        alert("Conclua os 4 desafios práticos para liberar o comprovante.");
         return;
       }
-      for (var i = 0; i <= 5; i++) {
-        var t = document.getElementById("tab" + i);
-        var p = document.getElementById("step" + i);
-        if (t) t.classList.remove("active");
-        if (p) p.classList.remove("active");
-      }
-      document.getElementById("tab" + idx).classList.add("active");
-      document.getElementById("step" + idx).classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function handleEnter(e, step) {
-      if (e.key === "Enter") {
-        testarCodigo(step);
-      }
-    }
-
-    function iniciarLaboratorio() {
-      var n = document.getElementById("inputNome").value.trim();
-      var t = document.getElementById("inputTurma").value.trim();
-      var esc = document.getElementById("inputEscola").value.trim();
-
-      if (!n) {
-        alert("Por favor, preencha seu nome completo para a emissão do comprovante.");
-        document.getElementById("inputNome").focus();
+      if (erros >= 3) {
+        alert("Nota insuficiente (" + calcularPorcentagem() + "%). Você cometeu 3 ou mais erros.\nReinicie o laboratório para tentar novamente.");
         return;
       }
+    }
+    for (var i = 0; i <= 5; i++) {
+      var t = document.getElementById("tab" + i);
+      var p = document.getElementById("step" + i);
+      if (t) t.classList.remove("active");
+      if (p) p.classList.remove("active");
+    }
+    document.getElementById("tab" + idx).classList.add("active");
+    document.getElementById("step" + idx).classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-      aluno.nome = n;
-      aluno.turma = t || "2º Técnico em Desenvolvimento de Sistemas";
-      aluno.escola = esc || "E.E. Professor Simão Mathias";
+  function handleEnter(e, step) {
+    if (e.key === "Enter") testarCodigo(step);
+  }
 
-      var now = new Date();
-      aluno.data = now.toLocaleDateString("pt-BR") + " às " + now.toLocaleTimeString("pt-BR", { hour: '2-digit', minute: '2-digit' });
+  function iniciarLaboratorio() {
+    var n = document.getElementById("inputNome").value.trim();
+    var t = document.getElementById("inputTurma").value.trim();
+    var esc = document.getElementById("inputEscola").value.trim();
+    if (!n) {
+      alert("Por favor, preencha seu nome completo para continuar.");
+      document.getElementById("inputNome").focus();
+      return;
+    }
+    aluno.nome = n;
+    aluno.turma = t || "2º C";
+    aluno.escola = esc || "E.E. Professor Simão Mathias";
+    aluno.data = new Date().toLocaleDateString("pt-BR");
+    document.getElementById("outNome").innerText = aluno.nome;
+    document.getElementById("outTurma").innerText = aluno.turma;
+    document.getElementById("outEscola").innerText = aluno.escola;
+    document.getElementById("outData").innerText = aluno.data;
+    document.getElementById("tab0").classList.add("done");
+    document.getElementById("statusLab").innerText = "Em andamento — Etapa 1 de 4";
+    goToStep(1);
+  }
 
-      document.getElementById("outNome").innerText = aluno.nome;
-      document.getElementById("outTurma").innerText = aluno.turma;
-      document.getElementById("outEscola").innerText = aluno.escola;
-      document.getElementById("outData").innerText = aluno.data;
+  function usarOpcao(step, codigo) {
+    document.getElementById("inputField" + step).value = codigo;
+    atualizarPreview(step, codigo);
+    testarCodigo(step);
+  }
 
-      document.getElementById("tab0").classList.add("done");
-      document.getElementById("statusLab").innerText = "Módulo 1: Context Manager";
-      goToStep(1);
+  function atualizarPreview(step, texto) {
+    var prev = document.getElementById("codePreview" + step);
+    if (prev) {
+      prev.innerText = texto;
+      prev.style.backgroundColor = "#BBF7D0";
+      prev.style.color = "#14532D";
+    }
+  }
+
+  function testarCodigo(step) {
+    var val = document.getElementById("inputField" + step).value.trim();
+    var term = document.getElementById("termBox" + step);
+    var btn = document.getElementById("btnNext" + step);
+
+    if (!val) {
+      term.className = "terminal-box show";
+      term.innerHTML = "<span class='term-error'>[ERRO]: Digite uma instrução ou selecione uma alternativa.</span>";
+      return;
     }
 
-    function usarOpcao(step, codigo) {
-      var field = document.getElementById("inputField" + step);
-      field.value = codigo;
-      atualizarPreview(step, codigo);
-      testarCodigo(step);
-    }
+    atualizarPreview(step, val);
 
-    function atualizarPreview(step, texto) {
-      var prev = document.getElementById("codePreview" + step);
-      if (prev) {
-        prev.innerText = texto;
-        prev.style.backgroundColor = "#BBF7D0";
-        prev.style.color = "#14532D";
-      }
-    }
-
-    function testarCodigo(step) {
-      var val = document.getElementById("inputField" + step).value.trim();
-      var term = document.getElementById("termBox" + step);
-      var btn = document.getElementById("btnNext" + step);
-
-      if (!val) {
+    if (step === 1) {
+      var c = val.replace(/\s+/g, " ").replace(/'/g, '"');
+      if (c.includes("with open") && c.includes("dados.txt") && c.includes("as f")) {
         term.className = "terminal-box show";
-        term.innerHTML = "<span class='term-error'>[ERRO]: Digite uma instrução no campo de código ou selecione uma alternativa.</span>";
-        return;
+        term.innerHTML = "<span class='term-success'>[SUCESSO]</span><br>>>> Arquivo 'dados.txt' aberto com segurança.<br>>>> Fechado automaticamente ao sair do bloco with.<br>>>> Status: 0 vazamentos de memória.";
+        progresso.s1 = true; btn.disabled = false; marcarDone(1);
+      } else if (c.includes("close()")) {
+        registrarErro(step);
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-error'>[FALHA]:</span> O .close() manual não é seguro. Se ocorrer um erro antes dele, o arquivo fica preso na memória.<br><span class='term-hint'>💡 Dica: Use a estrutura with open(...) as f:</span>";
+      } else {
+        registrarErro(step);
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-error'>[AVISO]:</span> Arquivo aberto sem garantia de fechamento automático.<br><span class='term-hint'>💡 Dica: Use with open para fechar sozinho.</span>";
       }
-
-      atualizarPreview(step, val);
-
-      if (step === 1) {
-        var clean1 = val.replace(/\s+/g, " ").replace(/'/g, '"');
-        if (clean1.includes("with open") && clean1.includes("dados.txt") && clean1.includes("as f")) {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-success'>[SUCESSO: Python 3.12]</span><br>>>> Arquivo 'dados.txt' alocado em buffer e lido.<br>>>> Recurso fechado automaticamente pelo Sistema Operacional ao sair do bloco.<br>>>> Status: 0 vazamentos de descritores de arquivo.";
-          progresso.s1 = true;
-          btn.disabled = false;
-          marcarDone(1);
-        } else if (clean1.includes("close()")) {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-error'>[FALHA DE ROBUSTEZ - 2º ANO]:</span> Fechamento manual com .close() não é tolerante a falhas. Se ocorrer uma exceção antes do close, o descritor permanece preso no SO.<br><span class='term-hint'>💡 Dica: Utilize a estrutura oficial Context Manager com 'with open(...) as f:'.</span>";
-        } else {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-error'>[RESOURCE WARNING]:</span> O arquivo foi aberto sem garantia de fechamento controlado pelo Sistema Operacional.<br><span class='term-hint'>💡 Dica: Aplique o padrão com with open.</span>";
-        }
-      }
-
-      else if (step === 2) {
-        var clean2 = val.replace(/\s+/g, "");
-        if (clean2 === "linha.strip()" || clean2 === "strip()" || clean2.includes(".strip()")) {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-success'>[SUCESSO: Python 3.12]</span><br>>>> String higienizada: '\n' e espaços removidos com sucesso.<br>>>> float('15.50') convertido para 15.5 sem ValueError.<br>>>> Colunas prontas para processamento.";
-          progresso.s2 = true;
-          btn.disabled = false;
-          marcarDone(2);
-        } else {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-error'>[ValueError: could not convert string to float]:</span> O caractere de quebra de linha '\n' ou espaços residuais impediram a conversão matemática.<br><span class='term-hint'>💡 Dica: Utilize o método 'linha.strip()' para limpar os resíduos invisíveis.</span>";
-        }
-      }
-
-      else if (step === 3) {
-        var clean3 = val.replace(/['"\s]/g, "").toLowerCase();
-        if (clean3 === "a" || clean3 === "append") {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-success'>[SUCESSO: DECISÃO DE NEGÓCIO APROVADA]</span><br>>>> Modo 'a' (Append) ativado com sucesso.<br>>>> Cursor posicionado no final do arquivo: 40 vendas da manhã preservadas.<br>>>> Venda #41 anexada com êxito.";
-          progresso.s3 = true;
-          btn.disabled = false;
-          marcarDone(3);
-        } else if (clean3 === "w") {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-error'>[CRITICAL DATA LOSS WARNING]:</span> O modo 'w' (Write) sobrescreve o arquivo e apagou todas as 40 vendas anteriores do caixa!<br><span class='term-hint'>💡 Dica: Para apenas acrescentar ao histórico sem apagar, use o modo 'a' (Append).</span>";
-        } else {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-error'>[IOError]:</span> Modo de abertura inadequado para append de dados.<br><span class='term-hint'>💡 Dica: O modo correto para anexar no final é 'a'.</span>";
-        }
-      }
-
-      else if (step === 4) {
-        var clean4 = val.replace(/\s+/g, "");
-        if (clean4.includes("csv.reader")) {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-success'>[SUCESSO: PADRÃO RFC 4180 CUMPRIDO]</span><br>>>> csv.reader() identificou as aspas como delimitador textual.<br>>>> 'Silva, João' preservado como coluna única.<br>>>> Relatório do RH processado com exatamente 4 colunas válidas.";
-          progresso.s4 = true;
-          btn.disabled = false;
-          marcarDone(4);
-        } else {
-          term.className = "terminal-box show";
-          term.innerHTML = "<span class='term-error'>[PARSING ERROR - 5 COLUNAS DETECTADAS]:</span> A vírgula interna do nome fatiou o sobrenome e corrompeu a tabela de funcionários.<br><span class='term-hint'>💡 Dica: Utilize a biblioteca padrão do Python com 'csv.reader(f)'.</span>";
-        }
-      }
-
-      atualizarProgressoGeral();
     }
 
-    function marcarDone(step) {
-      document.getElementById("tab" + step).classList.add("done");
+    else if (step === 2) {
+      var c2 = val.replace(/\s+/g, "");
+      if (c2.includes(".strip()")) {
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-success'>[SUCESSO]</span><br>>>> Quebra de linha \\n removida com sucesso.<br>>>> float('15.50') convertido para 15.5 sem erros.<br>>>> Dados prontos para cálculo.";
+        progresso.s2 = true; btn.disabled = false; marcarDone(2);
+      } else {
+        registrarErro(step);
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-error'>[ValueError]:</span> O caractere \\n ainda está grudado no texto e impediu a conversão para número.<br><span class='term-hint'>💡 Dica: Use linha.strip() para limpar antes de calcular.</span>";
+      }
     }
 
-    function atualizarProgressoGeral() {
-      var c = 0;
-      if (progresso.s1) c++;
-      if (progresso.s2) c++;
-      if (progresso.s3) c++;
-      if (progresso.s4) c++;
+    else if (step === 3) {
+      var c3 = val.replace(/['"\s]/g, "").toLowerCase();
+      if (c3 === "a" || c3 === "append") {
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-success'>[SUCESSO]</span><br>>>> Modo 'a' (Append) ativado.<br>>>> 40 vendas da manhã preservadas.<br>>>> Venda #41 adicionada no final do arquivo.";
+        progresso.s3 = true; btn.disabled = false; marcarDone(3);
+      } else if (c3 === "w") {
+        registrarErro(step);
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-error'>[PERDA DE DADOS]:</span> O modo 'w' apagou todas as 40 vendas da manhã!<br><span class='term-hint'>💡 Dica: Para adicionar sem apagar, use o modo 'a' (Append).</span>";
+      } else {
+        registrarErro(step);
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-error'>[ERRO]:</span> Modo de abertura inadequado.<br><span class='term-hint'>💡 Dica: O modo correto para adicionar no final é 'a'.</span>";
+      }
+    }
 
-      document.getElementById("progressFill").style.width = (c / 4) * 100 + "%";
+    else if (step === 4) {
+      var c4 = val.replace(/\s+/g, "");
+      if (c4.includes(".split(") && c4.includes(",")) {
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-success'>[SUCESSO]</span><br>>>> Linha separada corretamente por vírgula.<br>>>> Produto: Mouse | Preço: 50.00<br>>>> Colunas prontas para uso.";
+        progresso.s4 = true; btn.disabled = false; marcarDone(4);
+      } else {
+        registrarErro(step);
+        term.className = "terminal-box show";
+        term.innerHTML = "<span class='term-error'>[ERRO]:</span> As colunas não foram separadas corretamente.<br><span class='term-hint'>💡 Dica: Use linha.split(\",\") para dividir pelo separador de vírgula.</span>";
+      }
+    }
 
-      if (c === 4) {
+    atualizarProgressoGeral();
+  }
+
+  function marcarDone(step) {
+    document.getElementById("tab" + step).classList.add("done");
+  }
+
+  function atualizarProgressoGeral() {
+    var c = 0;
+    if (progresso.s1) c++;
+    if (progresso.s2) c++;
+    if (progresso.s3) c++;
+    if (progresso.s4) c++;
+    document.getElementById("progressFill").style.width = (c / 4) * 100 + "%";
+
+    if (c === 4) {
+      if (erros >= 3) {
+        document.getElementById("tab5").style.color = "#B91C1C";
+        document.getElementById("alertaErro").style.display = "block";
+        document.getElementById("lockedView").style.display = "none";
+        document.getElementById("statusLab").innerText = "Nota insuficiente — Reinicie o laboratório";
+        document.getElementById("statusLab").style.color = "#B91C1C";
+      } else {
+        var pct = calcularPorcentagem();
+        document.getElementById("outPorcentagem").innerText = pct + "%";
         document.getElementById("tab5").classList.add("done");
         document.getElementById("lockedView").style.display = "none";
         document.getElementById("unlockedView").style.display = "block";
-        document.getElementById("statusLab").innerText = "100% Concluído — Comprovante Liberado";
+        document.getElementById("statusLab").innerText = "Concluído — " + pct + "% de aproveitamento";
+        document.getElementById("statusLab").style.color = "#15803D";
       }
     }
+  }
 
-    function reiniciarLab() {
-      if (confirm("Deseja reiniciar os testes do laboratório?")) {
-        progresso = { s1: false, s2: false, s3: false, s4: false };
-        for (var i = 1; i <= 4; i++) {
-          document.getElementById("inputField" + i).value = "";
-          document.getElementById("btnNext" + i).disabled = true;
-          document.getElementById("termBox" + i).className = "terminal-box";
-          document.getElementById("tab" + i).classList.remove("done");
-        }
-        document.getElementById("tab5").classList.remove("done");
-        document.getElementById("lockedView").style.display = "block";
-        document.getElementById("unlockedView").style.display = "none";
-        document.getElementById("progressFill").style.width = "0%";
-        goToStep(0);
+  function reiniciarLab() {
+    if (confirm("Deseja reiniciar o laboratório? Todo o progresso será perdido.")) {
+      progresso = { s1: false, s2: false, s3: false, s4: false };
+      erros = 0;
+      erradosPorStep = { 1: false, 2: false, 3: false, 4: false };
+      for (var i = 1; i <= 4; i++) {
+        document.getElementById("inputField" + i).value = "";
+        document.getElementById("btnNext" + i).disabled = true;
+        document.getElementById("termBox" + i).className = "terminal-box";
+        document.getElementById("tab" + i).classList.remove("done");
       }
+      document.getElementById("tab5").classList.remove("done");
+      document.getElementById("tab5").style.color = "";
+      document.getElementById("alertaErro").style.display = "none";
+      document.getElementById("lockedView").style.display = "block";
+      document.getElementById("unlockedView").style.display = "none";
+      document.getElementById("progressFill").style.width = "0%";
+      document.getElementById("statusLab").innerText = "Aguardando Início";
+      document.getElementById("statusLab").style.color = "";
+      goToStep(0);
     }
-  </script>
+  }
+</script>
 </body>
 </html>
